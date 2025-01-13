@@ -1,68 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu mono',Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  --main-1: #01020a;
+  --main-2: #070707;
+  --secondary-1: #005e00;
+  --secondary-2: #6cff32;
+  --ternary-1: #230bff;
+  --ternary-2: #6554fd;
+  --main-text: #eefffe;
+  --secondary-text: #7c7c7c;
+
+  --light-main-1: #25171A;
+  --light-main-2: beige;
+  --light-secondary-1: #4B244A;
+  --light-secondary-2: #753973;
+  --light-ternary-1: #62a6ce;
+  --light-ternary-2: #98C1D9;
+  --light-main-text: #e2e2e2;
+  --light-secondary-text: #363434;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--main-text);
+
+  background-color: var(--main-2);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
-  margin: 0;
+  margin: auto;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.buttonl1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  width: fit-content;
+  padding: 5px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+@keyframes borderGradientSlow {
+  0% {
+    background-image: -moz-linear-gradient(0deg, var(--secondary-1), var(--secondary-2));
+  }
+
+  100% {
+    background-image: -moz-linear-gradient(180deg, var(--secondary-1), var(--secondary-2));
+  }
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: nigger) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    --main-1: var(--light-main-1);
+    --main-2: var(--light-main-2);
+    --secondary-1: var(--light-secondary-1);
+    --secondary-2: var(--light-secondary-2);
+    --ternary-1: var(--light-ternary-1);
+    --ternary-2: var(--light-ternary-2);
+    --main-text: var(--light-main-text);
+    --secondary-text: var(--light-secondary-text);
   }
 }
