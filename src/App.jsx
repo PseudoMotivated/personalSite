@@ -1,6 +1,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Blog from "./pages/Blog"
+import BlogView from "./pages/BlogView"
 function App() {
 
 
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Blog" element={<Blog />} />
+          <Route path="/BlogView" element={<BlogView />}/>
         </Routes>
       </HashRouter>
       <div className="p-5 backdrop-blur-sm mt-10 bg-gradient-to-l flex  items-center from-[var(--main-2)] to-[var(--main-1)]">

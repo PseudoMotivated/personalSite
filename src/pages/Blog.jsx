@@ -3,7 +3,6 @@ import { TopHead } from "../components/TopHead";
 import BlogCarousel from "../components/BlogCarousel";
 import BlogEntry from "../components/BlogEntry";
 import { useEffect, useState } from "react";
-import blogsList from "../components/blogsList";
 import { getAllPosts, getAllTags } from '../utils/BlogManager'
 
 
@@ -12,14 +11,18 @@ const Blog = () => {
     const [search, setSearch] = useState("")
     const [tags, setTags] = useState([])
     const [ticked, setTicked] = useState([])
-    const [filteredBlogs, setFilteredBlogs] = useState(blogsList)
+    const [blogs, setBlogs] = useState([])
+
     
 
     useEffect(() => {
-        getAllPosts().then(resp => setTags(getAllTags(resp)))
+        getAllPosts().then(resp =>{ 
+            setBlogs(resp) 
+            setTags(getAllTags(resp))
+            console.log(resp)
+        })    
     }, [])
 
-    console.log(blogsList)
 
     return (
         <div>
@@ -46,7 +49,7 @@ const Blog = () => {
                     {/* more blogs block */}
                     <div className="m-9">
                         {/* filtering block */}
-                        <input placeholder="Search..." className="text-slate-900 text-xl w-full p-2  border border-gray-300 rounded" value={search} onChange={(event) => setSearch(event.target.value)} />
+                        <input placeholder="Search..." className="bg-white text-slate-900 text-xl w-full p-2  border border-gray-300 rounded" value={search} onChange={(event) => setSearch(event.target.value)} />
                         <div className="flex flex-wrap">{tags.map(tag => {
                             return <div onClick={() => { ticked.includes(tag) ? setTicked(ticked.filter(i => i != tag)) : setTicked(ticked.concat(tag)) }} className={"m-1 rounded-sm ml-0 p-1 cursor-pointer " + (ticked.includes(tag) ? "bg-red-500" : "bg-orange-500")} key={tag}>{tag}</div>
                         })}</div>
@@ -56,11 +59,9 @@ const Blog = () => {
                         <div className=" flex justify-center items-center">
                             <div className="" style={{ width: "clamp(60%, 600px, 90%)" }}>
                                 <div>
-                                    <BlogEntry text="jdjdjdj" image="https://placehold.co/600x400?font=roboto" />
-                                    <BlogEntry text="jdjdjdj" image="https://placehold.co/600x400?font=roboto" />
-                                    <BlogEntry text="jdjdjdj" image="https://placehold.co/600x400?font=roboto" />
-                                    <BlogEntry text="jdjdjdj" image="https://placehold.co/600x400?font=roboto" />
-                                    <BlogEntry text="jdjdjdj" image="https://placehold.co/600x400?font=roboto" />
+                                    {blogs.map(blog => {
+                                        return <BlogEntry text={blog.slug} key={blogs.indexOf(blog)} image={blog.frontmatter.image}/>
+                                    })}
                                 </div>
                             </div>
                         </div>
