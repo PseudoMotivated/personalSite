@@ -2,13 +2,23 @@ import TopNav from "../components/TopNav";
 import { TopHead } from "../components/TopHead";
 import BlogCarousel from "../components/BlogCarousel";
 import BlogEntry from "../components/BlogEntry";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import blogsList from "../components/blogsList";
+import { getAllPosts, getAllTags } from '../utils/BlogManager'
+
+
+
 const Blog = () => {
     const [search, setSearch] = useState("")
-    const tags = ["opinion", "essay", "tutorial", "project"]
+    const [tags, setTags] = useState([])
     const [ticked, setTicked] = useState([])
     const [filteredBlogs, setFilteredBlogs] = useState(blogsList)
+    
+
+    useEffect(() => {
+        getAllPosts().then(resp => setTags(getAllTags(resp)))
+    }, [])
+
     console.log(blogsList)
 
     return (

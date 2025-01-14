@@ -1,9 +1,8 @@
 ---
-title: My Markdown Document
-author: Flexpilot
-date: 2024-07-26
-tags:
-  - markdown
-  - example
-  - documentation
+title: "My Blog Post"
+date: "2024-01-13"
+tags: ["react", "javascript", "web-dev"]
+description: "A brief description of the post"
 ---
+
+# Your content here
