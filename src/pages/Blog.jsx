@@ -4,23 +4,49 @@ import BlogCarousel from "../components/BlogCarousel";
 import BlogEntry from "../components/BlogEntry";
 import { useEffect, useState } from "react";
 import { getAllPosts, getAllTags } from '../utils/BlogManager'
+import { useNavigate } from "react-router-dom";
+import { use } from "react";
+import { AArrowUp } from "lucide-react";
 
 
 
 const Blog = () => {
+    const navigate = useNavigate()
     const [search, setSearch] = useState("")
     const [tags, setTags] = useState([])
     const [ticked, setTicked] = useState([])
     const [blogs, setBlogs] = useState([])
 
-    
+    // useEffect(() => {
+
+    //     const importComponent = async () => {
+    //       try {
+    //         const module = await import(`./blogs/${post}.md`);
+    //         const AnotherComponent = module.ReactComponent;
+    //         setImportedModule(<AnotherComponent />);
+    //       }
+    //       catch {
+    //         setImportedModule(<NotFound />);
+
+    //       }
+    //     };
+
+    //     importComponent();
+    //   }, [post]);
+
+
+    // const importImageForBlog = async (blog) => {
+    //     return await import(imagePath)
+    // }
 
     useEffect(() => {
-        getAllPosts().then(resp =>{ 
-            setBlogs(resp) 
+        getAllPosts().then(resp => {
+
+            setBlogs(resp)
+            
             setTags(getAllTags(resp))
             console.log(resp)
-        })    
+        })
     }, [])
 
 
@@ -45,7 +71,7 @@ const Blog = () => {
             </div>
 
             <div className="w-full justify-center flex">
-                <div style={{ }} className="flex flex-wrap justify-center w-full">
+                <div style={{}} className="flex flex-wrap justify-center w-full">
                     {/* more blogs block */}
                     <div className="m-9">
                         {/* filtering block */}
@@ -60,7 +86,7 @@ const Blog = () => {
                             <div className="" style={{ width: "clamp(60%, 600px, 90%)" }}>
                                 <div>
                                     {blogs.map(blog => {
-                                        return <BlogEntry text={blog.slug} key={blogs.indexOf(blog)} image={blog.frontmatter.image}/>
+                                        return <BlogEntry text={blog.slug} key={blogs.indexOf(blog)} image={blog.frontmatter.image} />
                                     })}
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 import { motion, useTime, useTransform, useMotionTemplate } from "motion/react"
-import { div } from "motion/react-client";
+import dog from '../assets/dog.jpg'
 const BlogEntry = ({ text , func, image}) => {
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
@@ -20,7 +20,7 @@ const BlogEntry = ({ text , func, image}) => {
                        style={{backgroundColor: "rgba(0, 0, 0, 0.5)",fontSize: "large",}}
                     >{text}</p> 
                 </div>
-                <img className="relative w-full h-full object-cover" style={{ pointerEvents: 'none' }}  src={image ? image : '/src/assets/dog.jpg'} alt="" /> 
+                <img className="relative min-h-full min-w-full object-cover" style={{ pointerEvents: 'none' }}  src={image ? image : dog} alt="" /> 
                 
             </div>
         </motion.div>

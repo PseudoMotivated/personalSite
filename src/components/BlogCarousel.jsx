@@ -2,6 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import BlogEntry from './BlogEntry';
+import { useNavigate } from 'react-router-dom';
 
 const BlogCarousel = () => {
   const responsive = {
