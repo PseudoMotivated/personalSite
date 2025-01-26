@@ -5,9 +5,7 @@ import BlogEntry from "../components/BlogEntry";
 import { useEffect, useState } from "react";
 import { getAllPosts, getAllTags } from '../utils/BlogManager'
 import { useNavigate } from "react-router-dom";
-import { use } from "react";
-import { AArrowUp } from "lucide-react";
-
+import { resolveImage } from "../utils/ImageManager";
 
 
 const Blog = () => {
@@ -16,38 +14,23 @@ const Blog = () => {
     const [tags, setTags] = useState([])
     const [ticked, setTicked] = useState([])
     const [blogs, setBlogs] = useState([])
-
-    // useEffect(() => {
-
-    //     const importComponent = async () => {
-    //       try {
-    //         const module = await import(`./blogs/${post}.md`);
-    //         const AnotherComponent = module.ReactComponent;
-    //         setImportedModule(<AnotherComponent />);
-    //       }
-    //       catch {
-    //         setImportedModule(<NotFound />);
-
-    //       }
-    //     };
-
-    //     importComponent();
-    //   }, [post]);
-
-
-    // const importImageForBlog = async (blog) => {
-    //     return await import(imagePath)
-    // }
+    const [filteredBlogs, setFilteredBlogs] = useState([])
 
     useEffect(() => {
         getAllPosts().then(resp => {
-
             setBlogs(resp)
-            
             setTags(getAllTags(resp))
             console.log(resp)
         })
     }, [])
+
+    useEffect(() => {
+        const filtered = blogs.filter(blog =>
+            blog.frontmatter.title.toLowerCase().includes(search.toLowerCase()) &&
+            (ticked.length === 0 || ticked.every(tag => blog.frontmatter.tags?.includes(tag)))
+        );
+        setFilteredBlogs(filtered);
+    }, [search, blogs, ticked])
 
 
     return (
@@ -71,27 +54,27 @@ const Blog = () => {
             </div>
 
             <div className="w-full justify-center flex">
-                <div style={{}} className="flex flex-wrap justify-center w-full">
-                    {/* more blogs block */}
-                    <div className="m-9">
-                        {/* filtering block */}
-                        <input placeholder="Search..." className="bg-white text-slate-900 text-xl w-full p-2  border border-gray-300 rounded" value={search} onChange={(event) => setSearch(event.target.value)} />
+
+                <div className="flex flex-wrap justify-center w-full">
+                    <div className="p-8" style={{ width: "clamp(30%, 500px, 90%)" }}>
+                        <input placeholder="Search..." className="bg-white text-slate-900 text-xl w-full p-2 border border-gray-300 rounded" value={search} onChange={(event) => setSearch(event.target.value)} />
                         <div className="flex flex-wrap">{tags.map(tag => {
                             return <div onClick={() => { ticked.includes(tag) ? setTicked(ticked.filter(i => i != tag)) : setTicked(ticked.concat(tag)) }} className={"m-1 rounded-sm ml-0 p-1 cursor-pointer " + (ticked.includes(tag) ? "bg-red-500" : "bg-orange-500")} key={tag}>{tag}</div>
                         })}</div>
                     </div>
-                    <div>
-                        {/* blogs block */}
+
+                    <div style={{ width: "clamp(40%, 500px, 90%)" }} >
                         <div className=" flex justify-center items-center">
-                            <div className="" style={{ width: "clamp(60%, 600px, 90%)" }}>
+                            <div >
                                 <div>
-                                    {blogs.map(blog => {
-                                        return <BlogEntry text={blog.slug} key={blogs.indexOf(blog)} image={blog.frontmatter.image} />
+                                    {filteredBlogs.map(blog => {
+                                        return <BlogEntry text={blog.frontmatter.title} key={blogs.indexOf(blog)} func={() => navigate(`/BlogView/${blog.slug}`)} image={resolveImage(blog.frontmatter.image)} />
                                     })}
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

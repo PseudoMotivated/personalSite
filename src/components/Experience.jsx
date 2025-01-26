@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { motion } from 'motion/react';
+import { resolveImage } from '../utils/ImageManager';
 
 const work = [
     {
         title: "Server Admin (2024-->)",
         content: "Administered and secured a live game server. ",
-        imageUrl: "/src/assets/block.png"
+        imageUrl: "block.png"
     },
     {
         title: "Ad Distributor (May-Nov 2024)",
         content: "Delivering ads to 200+ households on the weekends.",
-        imageUrl: "/src/assets/ad.png"
+        imageUrl: "ad.png"
     },
     {
         title: "Tech Support (Oct 2023-->)",
         content: "Volunteer Tech Support for the Swedish Red Cross",
-        imageUrl: "/src/assets/rk.png"
+        imageUrl: "rk.png"
     }
 ];
 
@@ -24,12 +25,12 @@ const education = [
     {
         title: "Fullstack Developer (2024--> WIP)",
         content: "Learning React, NodeJS and Express at Fullstackopen. ",
-        imageUrl: "/src/assets/dev.png"
+        imageUrl: "dev.png"
     },
     {
         title: "Gymnasium (Aug 2023--> WIP)",
         content: "Technical line at a Swedish Gymnasium.",
-        imageUrl: "/src/assets/book.png"
+        imageUrl: "book.png"
     }
 ];
 
@@ -43,7 +44,7 @@ const TimelineItem = ({ title, content, imageUrl, isLast }) => {
                 <div className="relative">
                     <div className="w-12 h-12 rounded-full border-2 border-blue-500 overflow-hidden flex items-center justify-center bg-white">
                         {imageUrl ? (
-                            <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+                            <img src={resolveImage(imageUrl)} alt={title} className="w-full h-full object-cover" />
                         ) : (
                             <div className="w-8 h-8 rounded-full bg-blue-100" />
                         )}

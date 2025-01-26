@@ -1,7 +1,7 @@
 import { TopHead } from "../components/TopHead"
 import { useState, useEffect } from "react"
 import TopNav from "../components/TopNav"
-import { UNSAFE_useFogOFWarDiscovery, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import "../gfm.css"
 
 
@@ -34,14 +34,15 @@ function BlogView() {
 
       }
     };
+    window.scrollTo(0, 0);
 
     importComponent();
   }, [post]);
 
 
 
-
   return (
+    
     <div className="min-h-screen">
       <div className="fixed w-full h-full opacity-50 blur-3xl" style={{ zIndex: "-10", background: "radial-gradient(circle, rgba(255,255,255,0.2), var(--main-1))" }} />
 
