@@ -3,6 +3,8 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { motion } from 'motion/react';
 import { resolveImage } from '../utils/ImageManager';
 
+
+// Edit this to edit content.
 const work = [
     {
         title: "Server Admin (2024-->)",

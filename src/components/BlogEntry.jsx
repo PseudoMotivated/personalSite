@@ -1,5 +1,14 @@
 import { motion, useTime, useTransform, useMotionTemplate } from "motion/react"
 import dog from '../assets/dog.webp'
+
+/**
+ * Displays a thumbnail and title.
+ * Runs a function when clicked.
+ * If no image, uses image of a dog.
+ * @param {string} text - The text on the blog entry.
+ * @param {function} func - Function to call when blog entry is clicked.
+ * @param {string} image - Image url for blog entry background.
+ */
 const BlogEntry = ({ text , func, image}) => {
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });

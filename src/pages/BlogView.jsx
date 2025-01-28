@@ -9,7 +9,6 @@ import "../gfm.css"
 function BlogView() {
 
   const NotFound = () => {
-
     return (
       <div>
         <h1>
@@ -31,7 +30,6 @@ function BlogView() {
       }
       catch {
         setImportedModule(<NotFound />);
-
       }
     };
     window.scrollTo(0, 0);
@@ -39,13 +37,10 @@ function BlogView() {
     importComponent();
   }, [post]);
 
-
-
   return (
     
     <div className="min-h-screen">
       <div className="fixed w-full h-full opacity-50 blur-3xl" style={{ zIndex: "-10", background: "radial-gradient(circle, rgba(255,255,255,0.2), var(--main-1))" }} />
-
       <TopHead />
       <TopNav />
       <div className="flex justify-center items-center">
@@ -53,9 +48,6 @@ function BlogView() {
           {importedModule}
         </div>
       </div>
-
-
-
     </div>
   )
 }

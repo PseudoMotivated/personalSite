@@ -52,9 +52,7 @@ const Blog = () => {
                     More Blogs
                 </h1>
             </div>
-
             <div className="w-full justify-center flex">
-
                 <div className="flex flex-wrap justify-center w-full">
                     <div className="p-8" style={{ width: "clamp(30%, 500px, 90%)" }}>
                         <input placeholder="Search..." className="bg-white text-slate-900 text-xl w-full p-2 border border-gray-300 rounded" value={search} onChange={(event) => setSearch(event.target.value)} />
@@ -69,9 +67,13 @@ const Blog = () => {
                                 <div>
                                     {
                                         filteredBlogs.map(blog => {
-                                            return <BlogEntry text={blog.frontmatter.title} key={blogs.indexOf(blog)} func={() => navigate(`/BlogView/${blog.slug}`)} image={resolveImage(blog.frontmatter.image)} />
+                                            return (
+                                                <BlogEntry text={blog.frontmatter.title}
+                                                    key={blogs.indexOf(blog)}
+                                                    func={() => navigate(`/BlogView/${blog.slug}`)}
+                                                    image={resolveImage(blog.frontmatter.image)} />
+                                            )
                                         })
-
                                     }
                                 </div>
                             </div>
