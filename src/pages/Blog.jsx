@@ -67,14 +67,16 @@ const Blog = () => {
                         <div className=" flex justify-center items-center">
                             <div >
                                 <div>
-                                    {filteredBlogs.map(blog => {
-                                        return <BlogEntry text={blog.frontmatter.title} key={blogs.indexOf(blog)} func={() => navigate(`/BlogView/${blog.slug}`)} image={resolveImage(blog.frontmatter.image)} />
-                                    })}
+                                    {
+                                        filteredBlogs.map(blog => {
+                                            return <BlogEntry text={blog.frontmatter.title} key={blogs.indexOf(blog)} func={() => navigate(`/BlogView/${blog.slug}`)} image={resolveImage(blog.frontmatter.image)} />
+                                        })
+
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

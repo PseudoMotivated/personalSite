@@ -3,7 +3,7 @@ title: "General data loss prevention"
 date: "2025-01-26"
 tags: ["tutorial", "self-hosting"]
 description: "A comprehensive guide to designing and implementing robust backup and disaster recovery strategies across diverse IT infrastructures. This document provides technical professionals with a practical framework for protecting critical data through comprehensive backup principles, implementation techniques, and recovery planning."
-image: "ethereal_hdd.png"
+image: "ethereal_hdd.webp"
 ---
 # Data Backup and Loss Prevention: A Comprehensive Guide
 

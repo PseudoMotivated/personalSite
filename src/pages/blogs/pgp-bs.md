@@ -3,7 +3,7 @@ title: "Using PGP and Tor for Journalistic Privacy"
 date: "2025-01-26"
 tags: ["pgp", "tor", "journalism", "privacy", "security"]
 description: "A step-by-step guide for journalists on using PGP encryption and Tor for secure and private communications. Learn how to safeguard sensitive information, protect sources, and maintain anonymity online."
-image: "lock_on_file.png"
+image: "lock_on_file.webp"
 ---
 ## **PGP and Tor: A Secure Guide for Journalists**
 

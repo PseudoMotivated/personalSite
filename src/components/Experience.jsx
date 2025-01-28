@@ -7,17 +7,17 @@ const work = [
     {
         title: "Server Admin (2024-->)",
         content: "Administered and secured a live game server. ",
-        imageUrl: "block.png"
+        imageUrl: "block.webp"
     },
     {
         title: "Ad Distributor (May-Nov 2024)",
         content: "Delivering ads to 200+ households on the weekends.",
-        imageUrl: "ad.png"
+        imageUrl: "ad.webp"
     },
     {
         title: "Tech Support (Oct 2023-->)",
         content: "Volunteer Tech Support for the Swedish Red Cross",
-        imageUrl: "rk.png"
+        imageUrl: "rk.webp"
     }
 ];
 
@@ -25,12 +25,12 @@ const education = [
     {
         title: "Fullstack Developer (2024--> WIP)",
         content: "Learning React, NodeJS and Express at Fullstackopen. ",
-        imageUrl: "dev.png"
+        imageUrl: "dev.webp"
     },
     {
         title: "Gymnasium (Aug 2023--> WIP)",
         content: "Technical line at a Swedish Gymnasium.",
-        imageUrl: "book.png"
+        imageUrl: "book.webp"
     }
 ];
 

@@ -1,5 +1,5 @@
 import { motion, useTime, useTransform, useMotionTemplate } from "motion/react"
-import dog from '../assets/dog.jpg'
+import dog from '../assets/dog.webp'
 const BlogEntry = ({ text , func, image}) => {
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });

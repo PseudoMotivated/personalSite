@@ -3,7 +3,7 @@ title: "No Code is a cop-out"
 date: "2025-01-26"
 tags: ["code", "opinion", "web-dev"]
 description: "Opinion about why its better to learn to code rather than use a no-code platform"
-image: "guy-red-matrix.png"
+image: "guy-red-matrix.webp"
 ---
 
 # People will do anything to not learn to code

@@ -3,7 +3,7 @@ title: "Best setup for a small homelab"
 date: "2024-01-13"
 tags: ["containers", "self-hosting" , "tutorial"]
 description: "A brief description of the post"
-image: "ynh_lxc_cover.jpg"
+image: "ynh_lxc_cover.webp"
 ---
 # Installing Yunohost into an LXC Behind an Nginx Reverse Proxy (Also in an LXC)
 
