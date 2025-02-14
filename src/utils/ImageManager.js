@@ -10,7 +10,7 @@ const images = import.meta.glob("../assets/*", { eager: true });
  */
 export const resolveImage = (imagePath, fallback) => {
   const matchedImage = Object.keys(images).find((path) =>
-    path.endsWith(imagePath), console.log(imagePath)
+    path.endsWith(imagePath), 
   );
 
   return matchedImage ? images[matchedImage].default : fallback;

@@ -6,16 +6,6 @@ import Experiece from "../components/Experience"
 import Button from "../components/Button"
 
 function Home() {
-  console.log('render')
-  const [counter, setCounter] = useState(0)
-  const placeholderthingy = () => {
-    console.log(counter)
-    setCounter(counter + 1)
-
-
-
-    
-  }
 
   return (
     <div>

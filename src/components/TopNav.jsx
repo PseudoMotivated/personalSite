@@ -13,12 +13,12 @@ const TopNav = () => {
       <motion.a href="https://github.com/pseudomotivated" style={{ color: "var(--main-text)" }} whileHover={{ color: "var(--ternary-2)" }} transition={{ color: 0.1 }}>
         Github
       </motion.a>
-      <motion.div style={{ color: "var(--main-text)" }} whileHover={{ color: "var(--ternary-2)" }} transition={{ color: 0.1 }}>
+      {/* <motion.div style={{ color: "var(--main-text)" }} whileHover={{ color: "var(--ternary-2)" }} transition={{ color: 0.1 }}>
         <Link to="/Portfolio">Portfolio</Link> 
-      </motion.div>
-      <motion.a href="https://only-fans.uk/BananaMan" style={{ color: "var(--main-text)" }} whileHover={{ color: "var(--ternary-2)" }} transition={{ color: 0.1 }}>
+      </motion.div> */}
+      {/* <motion.a href="https://only-fans.uk/BananaMan" style={{ color: "var(--main-text)" }} whileHover={{ color: "var(--ternary-2)" }} transition={{ color: 0.1 }}>
         Onlyfans
-      </motion.a>
+      </motion.a> */}
 
     </div>
   );

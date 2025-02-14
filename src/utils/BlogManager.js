@@ -2,7 +2,10 @@
 
 // Import all .md files from the blog directory
 const blogFiles = import.meta.glob('../pages/blogs/*.md')
-
+/**
+ * Looks in the blogs directory and returns all blogs with metadata in an array.
+ * @returns {array} - All available blogs.
+ */
 export async function getAllPosts() {
   const posts = []
   
@@ -21,13 +24,11 @@ export async function getAllPosts() {
   return posts.sort((a, b) => b.timestamp - a.timestamp)
 }
 
-export function getPostsByTag(posts, tag) {
-  return posts.filter(post => 
-    post.frontmatter?.tags && Array.isArray(post.frontmatter.tags) &&
-    post.frontmatter.tags.includes(tag)
-  )
-}
-
+/**
+ * Loops through all available blogs metadata, and returns all tags used in them as array.
+ * @param {array} posts - Blogs to loop through.
+ * @returns {array} tags - All available tags.
+ */
 export function getAllTags(posts) {
   const tags = new Set()
   posts.forEach(post => {

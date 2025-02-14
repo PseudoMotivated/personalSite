@@ -29,9 +29,9 @@ Before starting, install these tools:
 1. **Tor Browser** (for anonymized browsing): [Download here](https://www.torproject.org).
 2. **GnuPG (GNU Privacy Guard):** The modern, open-source PGP implementation. 
    - Install it via your package manager:
-     - **Linux:** `sudo apt install gnupg` (Debian/Ubuntu) or `sudo pacman -S gnupg` (Arch).
-     - **Mac:** `brew install gnupg` (via Homebrew).
-     - **Windows:** Use [Gpg4win](https://gpg4win.org/).
+     **Linux:** `sudo apt install gnupg` (Debian/Ubuntu) or `sudo pacman -S gnupg` (Arch).
+     **Mac:** `brew install gnupg` (via Homebrew).
+     **Windows:** Use [Gpg4win](https://gpg4win.org/).
 3. **Email client with PGP support** (optional):
    - Thunderbird with the **Enigmail** or **p≡p** plugin.
 4. **OnionShare** (optional): For anonymous file sharing over Tor.

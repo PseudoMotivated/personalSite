@@ -20,7 +20,6 @@ const Blog = () => {
         getAllPosts().then(resp => {
             setBlogs(resp)
             setTags(getAllTags(resp))
-            console.log(resp)
         })
     }, [])
 
