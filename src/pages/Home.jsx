@@ -20,7 +20,7 @@ function Home() {
         </h1>
         <div className="flex flex-col items-center m-5 mt-2 ">
           <p style={{ width: "clamp(60%, 600px, 100%)" }} >
-            I'm a 17 year fullstack developer and linux enthusiast. I usually build in React, Tailwind and Vite and can get a website up and running for you in no time, so get in touch!
+            I'm a 17 year old student and linux enthusiast. I usually build in React, Tailwind and Vite and can get a website up and running for you in no time, so get in touch!
           </p>
         </div>
       </div>
