@@ -3,7 +3,6 @@ import Home from "./pages/Home"
 import Blog from "./pages/Blog"
 import BlogView from "./pages/BlogView"
 import Privacy from "./pages/Privacy"
-import { useNavigate } from "react-router-dom"
 function App() {
   return (
     <div>
@@ -22,9 +21,6 @@ function App() {
         </div>
       </div>
     </div>
-
-
-
   )
 }
 

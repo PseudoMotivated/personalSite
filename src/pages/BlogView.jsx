@@ -4,41 +4,45 @@ import TopNav from "../components/TopNav"
 import { useParams } from 'react-router-dom';
 import "../gfm.css"
 
-
-
 function BlogView() {
+
+  // Gets which blog to import from url, identified via slug
+  // Tries to import it, if success runs it through pipeline to render
+  // Applies css and renders it
+
+  // If not found, returns a 404.
 
   const NotFound = () => {
     return (
       <div>
         <h1>
-          404 Not Found :( 
+          404 Not Found :(
         </h1>
       </div>
     )
   }
 
-  const [importedModule, setImportedModule] = useState(<NotFound/>)
+  const [importedModule, setImportedModule] = useState(<NotFound />)
   const { post } = useParams();
   useEffect(() => {
-    
     const importComponent = async () => {
       try {
-        const module = await import(`./blogs/${post}.md`);
-        const AnotherComponent = module.ReactComponent;
-        setImportedModule(<AnotherComponent />);
+        const module = await import(`./blogs/${post}.md`)
+        const AnotherComponent = module.ReactComponent
+        setImportedModule(<AnotherComponent />)
       }
       catch {
-        setImportedModule(<NotFound />);
+        setImportedModule(<NotFound />)
       }
     };
-    window.scrollTo(0, 0);
 
-    importComponent();
+    // Scrolls to top.
+    // Otherwise can begin in the middle when coming from Blog.jsx
+    window.scrollTo(0, 0)
+    importComponent()
   }, [post]);
 
   return (
-    
     <div className="min-h-screen">
       <div className="fixed w-full h-full opacity-50 blur-3xl" style={{ zIndex: "-10", background: "radial-gradient(circle, rgba(255,255,255,0.2), var(--main-1))" }} />
       <TopHead />

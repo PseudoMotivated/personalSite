@@ -1,5 +1,9 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+/**
+ * Displays a nav with links for the webpage, to be put on top, intended for use with header.
+ * Redirects to the page of the link clicked.
+ */
 const TopNav = () => {
   return (
     <div

@@ -12,6 +12,7 @@ import dog from '../assets/dog.webp'
 const BlogEntry = ({ text , func, image}) => {
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
+    
     return (
         <div className="flex items-center justify-center h-full">
         <motion.div onClick={() => func()} 

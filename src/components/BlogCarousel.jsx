@@ -10,12 +10,11 @@ import { useNavigate } from 'react-router-dom';
 const BlogCarousel = () => {
   const [blogs, setBlogs] = useState([])
   const navigate = useNavigate();
-/// Add blogs here
+
+  // Add blogs here via the slug
   const selection = ["no-code", "blog-ynh-lxc", "recovery"]
   
-  
-  
-  
+  // Change number of entries displayed depending on screen size.
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },

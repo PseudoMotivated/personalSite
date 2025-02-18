@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { motion } from 'motion/react';
 import { resolveImage } from '../utils/ImageManager';
 
 
@@ -37,8 +36,8 @@ const education = [
 ];
 
 const TimelineItem = ({ title, content, imageUrl, isLast }) => {
+    
     const [isExpanded, setIsExpanded] = useState(false);
-
     return (
         <div className="flex gap-4">
             <div className="flex flex-col items-center">
@@ -100,30 +99,34 @@ const Timeline = ({ items }) => {
     );
 };
 
+/**
+ * Displays a box which can be toggles between two states, each rendering a timeline with a seperate list.
+ * Toggles list and highlights clicked toggle button. Lists entries and can be modified in object inside Experience.jsx.
+ */
 const Experiece = () => {
     const [toggle, setToggle] = useState(false)
 
     if (!toggle) {
         return (
             <div>
-                <motion.div className="w-full flex flex-col items-center justify-center">
+                <div className="w-full flex flex-col items-center justify-center">
                     <div style={{ width: "clamp(40%, 600px, 90%)" }} className="flex p-1 rounded-lg  flex-row bg-slate-200 justify-around">
                         <div onClick={() => { setToggle(!toggle) }} className="text-center cursor-pointer overflow-hidden rounded-md w-full"><p className="text-slate-900" >Education</p></div>
                         <div className=" text-center cursor-pointer overflow-hidden rounded-md w-full "><p className="text-white bg-[var(--main-1)]" >Work</p></div>
                     </div>
-                </motion.div>
+                </div>
                 <Timeline items={work} />
             </div>
         )
     } else {
         return (
             <div>
-                <motion.div className="w-full flex flex-col items-center justify-center">
+                <div className="w-full flex flex-col items-center justify-center">
                     <div style={{ width: "clamp(40%, 600px, 90%)" }} className="flex p-1 rounded-lg  flex-row bg-slate-200 justify-around">
                         <div className=" text-center cursor-pointer overflow-hidden rounded-md w-full "><p className="text-white bg-[var(--main-1)]" >Education</p></div>
                         <div onClick={() => { setToggle(!toggle) }} className="text-center cursor-pointer overflow-hidden rounded-md w-full"><p className="text-slate-900" >Work</p></div>
                     </div>
-                </motion.div>
+                </div>
                 <Timeline items={education} />
             </div>
         )

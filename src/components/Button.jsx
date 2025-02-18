@@ -1,9 +1,12 @@
 import { motion, useTime, useTransform, useMotionTemplate } from "motion/react"
+
+/**
+ * Displays a button with a background highlight.
+ * Runs a function when clicked.
+ * @param {string} text - The text on the button entry.
+ * @param {function} func - Function to call when button is clicked. 
+ */
 const Button = ({ text , func}) => {
-
-
-
-
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
     return (

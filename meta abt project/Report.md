@@ -1,13 +1,9 @@
 # Rapport om projektet
 ## Uppdrag
-__Övergripande beskrivning av vad du gjort och varför du valt att göra just det.__
 
 Jag har valt att göra en personlig sida, där jag kan lägga upp mitt cv samt publicera bloggar. Det hjälper (har jag hört) om man ska söka jobb i teknikvärlden. Jag valde att göra det för att jag skulle göra det oavsätt, så det blev två fåglar med en sten med denna uppgift.
  
 ## Mål och målgrupper
-__Beskriv målen för webbplatsen. Vad ska webbplatsen åstadkomma?__
-
-__Beskriv vilka webbplatsen vänder sig till och vilka behov de har.__
 
 Vad webbplatsen ska åstadkomma är:
 -	Höja sannolikheten att jag blir anställd. ( Jag är min egen klient ).
@@ -22,7 +18,6 @@ Målgrupp:
 -	De som vill läsa bloggarna (ovan)
 
 ## Innehåll och funktioner
-__Vilka tekniker använde du (HTML, CSS, …) och hur använde du respektive teknik.__
 
 Teknik jag använde:
 - React + Tailwind css
@@ -40,66 +35,74 @@ Webbanimations library, använde det för att rotera en linjär gradient bakom B
 Uhhh, rendrar markdown till webben.
 
 ## Struktur och navigering
-__Hur du grupperat informationen och hur användaren hittar.__
  
+ Struktur på hemsidan
+
  ```mermaid
  flowchart
  
 Home --> Blogs --> l[Individuella Bloggar]
 
-Allt --> Privacy
+k[alla sidor] --> Privacy
+
 
  ```
 ## Grafisk form
-__Hur webbplatsen fått ett gemensamt utseende så man känner igen sig (logo, färg, typsnitt…).__
 
-Vad jag gjorde:
+Hur jag gav hemsidan gemensamt utseende:
 -	Format gemensamma färger med css variabler
 -	Gemensam header, nav och footer med react komponenter.
 - Återanvänt komponenter som urvals karusellen
 
 ## Utformning av webbplats
-__Beskriv upplägget av arbetet med webbplatsen.__
-
+Upplägg av arbetet: 
 Började med att designa ungefärligt upplägg med draw.io, filen för det är tillgänglig i samma mapp som rapporten.
+Började programmera Home sidan, sedan Blog, bugfixade inför build.
 
-__Vilka val togs under skapandet?__
+Vissa val som gjordes inför skapandet var:
+Att markdown skulle vara formatet för bloggarna för det är det man skriver teknisk documentation med i industrin, bloggarna skulle också rendras dynamiskt och på klientsida för att skalan kommer vara liten, och jag kommer förmodligen inte ha så mycket text totalt över alla bloggar eller så många bloggar att det blir segt för klienten att loopa igenom alla bloggar för att generera taggar eller thumbnails.
 
-Markdown skulle vara formatet för bloggarna för det är det man skriver teknisk documentation med i industrin, bloggarna skulle också rendras dynamiskt och på klientsida för att skalan kommer vara liten, och jag kommer förmodligen inte ha så mycket text totalt över alla bloggar eller så många bloggar att det blir segt för klienten att loopa igenom alla bloggar för att generera taggar eller thumbnails.
+att inte lägga en header på privacy sidan, bara nav, kände att det passade bättre så.
 
-__Hur konstruerades de olika sidorna?__
+Komprimerade bilderna extremt mycket, tycker prestandan är värd kvalitetsförlusten.
 
+Konstruktionen av de olika sidorna:
 Blogg sidan har en urvals karusell överst och sedan rendrar den en array med alla bloggar, den arrayen kan filtras med input via att toggla taggar eller att söka. Taggarna rendras med en array som är konstruerad via att loopa igenom alla bloggars metadata och appenda taggarna in i arrayen.
 
-__Vilka förändringar fick du göra under utvecklingen?__
+Home sidan har också en karusell med bloggar, den använder samma komponent Blogcarousel, den har också en komponent experience som lätt går att ändra och göra tillägg i då den tar argument från ett objekt.
+
+Blogview är sidan som rendrar alla markdown filer, den tar md filen, använder en extension som rendrar den till en react komponent som formatteras med medföljande gfm.css (mit licens), modifierat så den passar med hemsidans stil. 
+
  
-När jag skulle testa göra build för produktion dök inte bilderna upp. Inga. Man behöver importera de i koden för att de ska komma med i dist. Tog ett tag men jag löste det genom att importera alla assets med glob, och göra en funktion som kollar upp bildens originala path i arrayen och returna nya path inne i glob så den kan rendras.
+När jag skulle testa göra build för produktion dök inte bilderna upp. Inga. Man behöver importera de i koden för att de ska komma med i dist. Tog ett tag men jag löste det genom att importera alla assets med glob, och göra en utility funktion som kollar upp bildens originala path i arrayen och returna nya path inne i glob så den kan rendras.
 
 ## Tester
-__Dokumentera vilka tester på olika webbläsare och olika enheter du gjort.__
 
-Jag testade sidan på Firefox, Vivaldi och Edge. Jag använder ingen avancerad css, och när javascripten komplieras görs den sådan att den blir compatibel med äldre webbläsare. 
-
-__Vad fungerade bra och mindre bra?__
+Jag testade sidan på Firefox, Vivaldi och Edge. Jag använder ingen avancerad (nya properties) css, och när javascripten kompileras görs den sådan att den blir compatibel med äldre webbläsare. 
  
 Enda skillnaden är att på Chromium Webbläsare så blir gifen i faviconen statisk. Bara FF supportar gifs i favicon :(.
 
 ## Juridiska frågor
-__Dokumentera juridiska frågor (t ex upphovsrätt) kring webbplatsen.__
 
-Koden har jag lagt på MIT licens. Alla assets har jag antingen gjort själv, eller laddat ned public domain (ingen attribution, ingenting). 
+Koden har jag lagt på MIT licens. Alla assets har jag antingen gjort själv, eller laddat ned public domain (krävs ingen attribution, ingenting). Sidan är statisk och använder inte cookies eller liknande teknik.
  
 ## Problem och reflektioner
-__Vilka problem stötte du på under arbetet?__
 
-Ovan beskrivet att bilder inte rendrar. Och det knölade sig när jag skulle rendra markdown.
+De största problemen var när bilderna inte rendrade som beskrivet ovan, och när jag skulle lösa hur man skulle rendra markdown. Löstes till slut och fick syssla lite med async och effekt hooks.
 
-__Vad fungerar bra och mindre bra?__
+Jag började med en kurs för react utveckling, och detta var bra övning på det jag lärt mig och mer. Detta är första gången jag använt tailwind css, och efter nu känner jag mig rätt bekväm med det.
 
-Experience componenten. Linjerna i den bryts om entries i den expanderas på en tunn skärm. 
+En grej som inte fungerar så bra är i Experience componenten, där Linjerna i timelinen bryts om entries i den expanderas på en tunn skärm för att de har en statisk längd och texten han ta större höjd än de.
 
-__Hur kan webbplatsen utvecklas vidare?__
 
-Kan faktrorera om blogentry kompenten, så att den bara tar en blog som input. Implementera så att den löser ut länk och bild osv själv, flyttar in det från de andra kompenterna som använder den. 
+Om jag skulle utveckla hemsidan vidare skulle jag nog börja med att faktrorera om blogentry kompenten, så att den bara tar en blog som input. Implementera så att den löser ut länk och bild osv själv, flyttar in det från de andra kompenterna som använder den. 
 
 Kanske lägga till databas med bloggar, så jag har en backend att leka med. 
+
+Använda before och after pseudo elementen i css istället för extra divs för styling, som i BlogEntry komponenten. Lärde mig om de rätt nyligen.
+
+Lägga till portfolio sida i framtiden när jag har byggt något jag inte skäms för att visa för en potentiell arbetsgivare.
+
+Skriva fler blogginlägg, byta ut AI skräpet jag lagt som placeholder.
+
+Lägga till 2 st. pdf med mitt cv som laddas ned med knapparna på Home sidan.
