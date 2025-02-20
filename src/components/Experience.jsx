@@ -36,7 +36,7 @@ const education = [
 ];
 
 const TimelineItem = ({ title, content, imageUrl, isLast }) => {
-    
+
     const [isExpanded, setIsExpanded] = useState(false);
     return (
         <div className="flex gap-4">
@@ -105,32 +105,31 @@ const Timeline = ({ items }) => {
  */
 const Experiece = () => {
     const [toggle, setToggle] = useState(false)
+ 
+        return (
+            <div>
+                <div className="w-full flex flex-col items-center justify-center">
 
-    if (!toggle) {
-        return (
-            <div>
-                <div className="w-full flex flex-col items-center justify-center">
-                    <div style={{ width: "clamp(40%, 600px, 90%)" }} className="flex p-1 rounded-lg  flex-row bg-slate-200 justify-around">
-                        <div onClick={() => { setToggle(!toggle) }} className="text-center cursor-pointer overflow-hidden rounded-md w-full"><p className="text-slate-900" >Education</p></div>
-                        <div className=" text-center cursor-pointer overflow-hidden rounded-md w-full "><p className="text-white bg-[var(--main-1)]" >Work</p></div>
+                    <div style={{ width: "clamp(40%, 600px, 90%)" }}
+                        className="flex p-1 rounded-lg  flex-row bg-slate-200 justify-around">
+
+                        <div onClick={() => { setToggle(true) }}
+                            className="text-center cursor-pointer overflow-hidden rounded-md w-full">
+                            <p className={!toggle? "text-slate-900" :"text-white bg-[var(--main-1)]"}>Education</p>
+                        </div>
+
+                        <div onClick={() => { setToggle(false) }}
+                        className="text-center cursor-pointer overflow-hidden rounded-md w-full ">
+                            <p className={toggle? "text-slate-900" :"text-white bg-[var(--main-1)]"}>Work</p>
+                        </div>
+                        
                     </div>
+
                 </div>
-                <Timeline items={work} />
+                <Timeline items={toggle? education : work} />
             </div>
         )
-    } else {
-        return (
-            <div>
-                <div className="w-full flex flex-col items-center justify-center">
-                    <div style={{ width: "clamp(40%, 600px, 90%)" }} className="flex p-1 rounded-lg  flex-row bg-slate-200 justify-around">
-                        <div className=" text-center cursor-pointer overflow-hidden rounded-md w-full "><p className="text-white bg-[var(--main-1)]" >Education</p></div>
-                        <div onClick={() => { setToggle(!toggle) }} className="text-center cursor-pointer overflow-hidden rounded-md w-full"><p className="text-slate-900" >Work</p></div>
-                    </div>
-                </div>
-                <Timeline items={education} />
-            </div>
-        )
-    }
-}
+    } 
+
 
 export default Experiece;
