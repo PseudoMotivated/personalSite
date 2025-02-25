@@ -1,8 +1,5 @@
-# React + Vite
+# My personal site 
+Source is free, adapt if you will
+PRs welcome
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If youre going to run it in your own env, make sure to modify `require('punycode')` in `node_modules\markdown-it\lib\index.js` to `require('punycode/')`
